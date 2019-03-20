@@ -14,5 +14,9 @@
 
 import sys
 
+################################################################
 file = sys.stdin.read()
-print(file)
+#Gets rid of any blank lines from the standard input
+list = file.split('\n')
+BinaryInput = list[0]
+print(BinaryInput)
