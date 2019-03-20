@@ -13,10 +13,30 @@
 ################################################################
 
 import sys
-
+import re
 ################################################################
+
+#our seperate eightbit and sevenbit functions
+def eightBit(BinaryInput):
+	print("Im 8 bit")
+	return
+def sevenBit(BinaryInput):
+	print("Im 7 bit")
+	return
+
+
 file = sys.stdin.read()
 #Gets rid of any blank lines from the standard input
 list = file.split('\n')
 BinaryInput = list[0]
+Int_BinaryInput = int(BinaryInput)
+Binary_Length = len(BinaryInput)
+
+#Checks to see if it is 7 bit or 8 bit
+
+if (Binary_Length % 8 == 0):
+	eightBit(Int_BinaryInput)
+if (Binary_Length % 7 == 0):
+	sevenBit(Int_BinaryInput)
+
 print(BinaryInput)
