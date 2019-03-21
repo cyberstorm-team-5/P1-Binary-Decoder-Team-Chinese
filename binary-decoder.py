@@ -67,7 +67,6 @@ def space(BinaryList, curr):
 
 
 
-
 file = sys.stdin.read()
 #Gets rid of any blank lines from the standard input
 list = file.split('\n')
@@ -75,7 +74,6 @@ BinaryInput = list[0]
 Int_BinaryInput = int(BinaryInput)
 Binary_Length = len(BinaryInput)
 #Our dictionary that holds all of our keys
-
 eightASKIIdict = {"00001000": "backspace", "00001001": "tab", "00001101": "cReturn", "00100000": "space",
                   "00100001": "!","00100010": '"', "00100100" : "$", "00100101" : "%", "00100110" : "&",
                   "00100111" : "'", "00101000" : "(", "00101001": ")", "00101010": "*", "00101011" : "+",
@@ -88,6 +86,7 @@ eightASKIIdict = {"00001000": "backspace", "00001001": "tab", "00001101": "cRetu
                   "01001100" : "L", "01001101" : "M", "01001110" : "N", "01001111" : "O", "01010000" : "P",
                   "01010001" : "Q", "01010010" : "R", "01010011" : "S", "01010100" : "T", "01010101" : "U",
                   "01010110" : "V", "01010111" : "W", "01011000" : "X", "01011001" : "Y", "01011010" : "Z",}
+
 
 
 sevenASKIIdict = {
