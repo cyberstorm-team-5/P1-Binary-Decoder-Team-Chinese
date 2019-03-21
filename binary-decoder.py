@@ -1,4 +1,3 @@
-
 ################################################################
 # Authors: Team Chinese (Lane Arnold, Christopher Boquet,
 # 	       Christopher Bouton, Darrell Durousseaux, Clay Fonseca,
@@ -21,9 +20,12 @@ def eightBit(BinaryInput):
 	return
 
 def sevenBit(BinaryInput, curr, Binary_Length):
+	tracker = -1;
+	curr = -1
 	print("Im 7 bit")
 	BinaryList = []
-	FinalList = []
+	List_SpecialChar = ["backspace","delete", "cReturn"]
+	FinalString = ""
 	leen = Binary_Length / 7
 	for x in range(leen):
 		temp = BinaryInput[x*7:(x+1)*7]
@@ -31,11 +33,27 @@ def sevenBit(BinaryInput, curr, Binary_Length):
 	for i in range(leen):
 		temp0 = BinaryList[i]
 		temp = sevenASKIIdict.get(temp0)
+		for c in range(3):
+			if temp == List_SpecialChar[c]:
+				tracker = c;
+		if (tracker != -1):
+			#print(tracker)
+			if (tracker == 0):
+				FinalString = FinalString[:-1]
+			if (tracker == 1):
+				a = a
+			if (tracker == 2):
+				FinalString = FinalString + "\n"
+			tracker = -1
+		else:
+			FinalString = FinalString + temp
 		print(temp)
+	print(FinalString)
 	return
 
 
 def printOutput(array):
+	print ''.join([str(item) for item in array])
 	return
 
 def backspace(BinaryInput, curr):
@@ -52,8 +70,9 @@ def cReturn(BinaryList, curr):
         return BinaryList
 
 def space(BinaryList, curr):
+	BinaryList.append("")
         curr += 1
-        return BinaryList
+        return BinaryList,curr
 
 
 
@@ -90,7 +109,7 @@ eightASKIIdict = {"00001000": "backspace", "00001001": "tab", "00001101": "cRetu
 
 
 sevenASKIIdict = {
-"0001000": "backspace", "0001001": "tab", "0001101": "carriage return", "0100000": "space", "0100001": "!",
+"0001000": "backspace", "0001001": "	", "0001101": "carriage return", "0100000": " ", "0100001": "!",
 "0100010": '"', "0100011": '#', "0100100": "$", "0100101":"%", "0100110":"&", "0100111":'"', "0101000":"(",
 "0101001":")", "0101010":"*", "0101011":"+", "0101100":",", "0101101":"-", "0101110":".", "0101111":"/", 
 "0110000":"0", "0110001":"1", "0110010":"2", "0110011":"3", "0110100":"4", "0110101":"5", "0110110":"7",
