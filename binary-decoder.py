@@ -38,7 +38,22 @@ def sevenBit(BinaryInput, curr, Binary_Length):
 def printOutput(array):
 	return
 
+def backspace(BinaryInput, curr):
+        curr -= 1
+        BinaryList[curr] = ""
+        return BinaryList
 
+def tab(BinaryInput, curr):
+        curr += 4
+        return BinaryList
+
+def cReturn(BinaryList, curr):
+        curr += 120
+        return BinaryList
+
+def space(BinaryList, curr):
+        curr += 1
+        return BinaryList
 
 
 
@@ -59,6 +74,20 @@ BinaryInput = list[0]
 Int_BinaryInput = int(BinaryInput)
 Binary_Length = len(BinaryInput)
 #Our dictionary that holds all of our keys
+eightASKIIdict = {"00001000": "backspace", "00001001": "tab", "00001101": "cReturn", "00100000": "space",
+                  "00100001": "!","00100010": '"', "00100100" : "$", "00100101" : "%", "00100110" : "&",
+                  "00100111" : "'", "00101000" : "(", "00101001": ")", "00101010": "*", "00101011" : "+",
+                  "00101100": ",", "00101101" : "-", "00101110" : ".", "00101111" : "/", "00110000" : "0",
+                  "00110001" : "1", "00110011" : "3", "00110100" : "4", "00110101" : "5", "00110110" : "6",
+                  "00110111" : "7", "00111000" : "8", "00111001" : "9", "00111010" : ":", "00111011" : ";",
+                  "00111100": "<", "00111101" : "=", "00111110" : ">", "00111111" : "?", "01000000" : "@",
+                  "01000001" : "A", "01000010" : "B", "01000011" : "C", "01000100" : "D", "01000101" : "E",
+                  "01000110" : "F", "01000111" : "G", "01001000" : "H", "01001010" : "J", "01001011" : "K",
+                  "01001100" : "L", "01001101" : "M", "01001110" : "N", "01001111" : "O", "01010000" : "P",
+                  "01010001" : "Q", "01010010" : "R", "01010011" : "S", "01010100" : "T", "01010101" : "U",
+                  "01010110" : "V", "01010111" : "W", "01011000" : "X", "01011001" : "Y", "01011010" : "Z",}
+
+
 
 sevenASKIIdict = {
 "0001000": "backspace", "0001001": "tab", "0001101": "carriage return", "0100000": "space", "0100001": "!",
