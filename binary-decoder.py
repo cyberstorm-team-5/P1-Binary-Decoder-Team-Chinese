@@ -20,11 +20,12 @@ def eightBit(BinaryInput):
 	return
 
 def sevenBit(BinaryInput, curr, Binary_Length):
+	changedMode = False
 	tracker = -1;
 	curr = -1
 	print("Im 7 bit")
 	BinaryList = []
-	List_SpecialChar = ["backspace","delete", "cReturn"]
+	List_SpecialChar = ["backspace","delete", "cReturn", "linefeed"]
 	FinalString = ""
 	leen = Binary_Length / 7
 	for x in range(leen):
@@ -33,7 +34,7 @@ def sevenBit(BinaryInput, curr, Binary_Length):
 	for i in range(leen):
 		temp0 = BinaryList[i]
 		temp = sevenASKIIdict.get(temp0)
-		for c in range(3):
+		for c in range(4):
 			if temp == List_SpecialChar[c]:
 				tracker = c;
 		if (tracker != -1):
@@ -43,46 +44,17 @@ def sevenBit(BinaryInput, curr, Binary_Length):
 			if (tracker == 1):
 				a = a
 			if (tracker == 2):
-				FinalString = FinalString + "\n"
+				
+				FinalString = FinalString + "\r"
+			if (tracker == 3):
+				a=a
+				FinalString = FinalString + "\r"
 			tracker = -1
 		else:
 			FinalString = FinalString + temp
 		print(temp)
 	print(FinalString)
 	return
-
-
-def printOutput(array):
-	print ''.join([str(item) for item in array])
-	return
-
-def backspace(BinaryInput, curr):
-        curr -= 1
-        BinaryList[curr] = ""
-        return BinaryList
-
-def tab(BinaryInput, curr):
-        curr += 4
-        return BinaryList
-
-def cReturn(BinaryList, curr):
-        curr += 120
-        return BinaryList
-
-def space(BinaryList, curr):
-	BinaryList.append("")
-        curr += 1
-        return BinaryList,curr
-
-
-
-
-
-
-
-
-
-
 
 
 
@@ -123,7 +95,7 @@ sevenASKIIdict = {
 "1101001":"i", "1101010":"j", "1101011":"k", "1101100":"l", "1101101":"m", "1101110":"n", "1101111":"o",
 "1110000":"p", "1110001":"q", "1110010":"r", "1110011":"s", "1110100":"t", "1110101":"u", "1110110":"v",
 "1110111":"w", "1111000":"x", "1111001":"y", "1111010":"z", "1111011":"{", "1111100":"|", "1111101":"}",
-"1111110":"~", "1111111":"delete"}
+"1111110":"~", "1111111":"delete", "0001010":"linefeed"}
 
 #temp = sevenASKIIdict.get("1010101")
 #test = sevenASKIIdict.get("0100010")
