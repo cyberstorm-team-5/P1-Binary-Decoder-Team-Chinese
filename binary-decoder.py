@@ -15,11 +15,10 @@
 import sys
 import re
 ################################################################
-
-#our seperate eightbit and sevenbit functions
 def eightBit(BinaryInput):
 	print("Im 8 bit")
 	return
+
 def sevenBit(BinaryInput):
 	print("Im 7 bit")
 	return
@@ -31,6 +30,12 @@ list = file.split('\n')
 BinaryInput = list[0]
 Int_BinaryInput = int(BinaryInput)
 Binary_Length = len(BinaryInput)
+#Our dictionary that holds all of our keys
+ASKIIdict = {
+"0001000": "backspace", "0001001": "tab", "0001101": "carriage return", "0100000": "space", "0100001": "!",
+"0100010": '"'}
+test = ASKIIdict.get("0100010")
+print(test)
 
 #Checks to see if it is 7 bit or 8 bit
 
