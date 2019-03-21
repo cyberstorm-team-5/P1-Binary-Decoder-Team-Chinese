@@ -24,6 +24,31 @@ def sevenBit(BinaryInput):
 	return
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 file = sys.stdin.read()
 #Gets rid of any blank lines from the standard input
 list = file.split('\n')
@@ -33,7 +58,36 @@ Binary_Length = len(BinaryInput)
 #Our dictionary that holds all of our keys
 ASKIIdict = {
 "0001000": "backspace", "0001001": "tab", "0001101": "carriage return", "0100000": "space", "0100001": "!",
-"0100010": '"'}
+"0100010": '"'
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+}
 test = ASKIIdict.get("0100010")
 print(test)
 
