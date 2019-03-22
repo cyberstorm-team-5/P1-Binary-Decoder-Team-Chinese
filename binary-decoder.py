@@ -17,28 +17,27 @@ import re
 ################################################################
 def eightBit(BinaryInput):
 	print("Im 8 bit")
-	return
-
-def sevenBit(BinaryInput, curr, Binary_Length):
 	changedMode = False
 	tracker = -1;
 	curr = -1
-	print("Im 7 bit")
+	#print("Im 7 bit")
 	BinaryList = []
 	List_SpecialChar = ["backspace","delete", "cReturn", "linefeed"]
 	FinalString = ""
 	leen = Binary_Length / 7
+	#obtains each seven bits of binary and places them in a list
 	for x in range(leen):
 		temp = BinaryInput[x*7:(x+1)*7]
 		BinaryList.append(temp)
+	#goes through the seven bits and adds to or chages the string accordingly
 	for i in range(leen):
 		temp0 = BinaryList[i]
-		temp = sevenASKIIdict.get(temp0)
+		temp = eightASKIIdict.get(temp0)
+		#checks to see if "special" changes to the strings are neccesary
 		for c in range(4):
 			if temp == List_SpecialChar[c]:
 				tracker = c;
 		if (tracker != -1):
-			#print(tracker)
 			if (tracker == 0):
 				FinalString = FinalString[:-1]
 			if (tracker == 1):
@@ -50,9 +49,50 @@ def sevenBit(BinaryInput, curr, Binary_Length):
 				a=a
 				FinalString = FinalString + "\r"
 			tracker = -1
+		#else, adds to the string
 		else:
 			FinalString = FinalString + temp
-		print(temp)
+		#print(temp)
+	print(FinalString)
+	return
+
+#function for if it is seven bit
+def sevenBit(BinaryInput, curr, Binary_Length):
+	changedMode = False
+	tracker = -1;
+	curr = -1
+	#print("Im 7 bit")
+	BinaryList = []
+	List_SpecialChar = ["backspace","delete", "cReturn", "linefeed"]
+	FinalString = ""
+	leen = Binary_Length / 7
+	#obtains each seven bits of binary and places them in a list
+	for x in range(leen):
+		temp = BinaryInput[x*7:(x+1)*7]
+		BinaryList.append(temp)
+	#goes through the seven bits and adds to or chages the string accordingly
+	for i in range(leen):
+		temp0 = BinaryList[i]
+		temp = sevenASKIIdict.get(temp0)
+		#checks to see if "special" changes to the strings are neccesary
+		for c in range(4):
+			if temp == List_SpecialChar[c]:
+				tracker = c;
+		if (tracker != -1):
+			if (tracker == 0):
+				FinalString = FinalString[:-1]
+			if (tracker == 1):
+				a = a
+			if (tracker == 2):
+				
+				FinalString = FinalString + "\r"
+			if (tracker == 3):
+				FinalString = FinalString + "\r"
+			tracker = -1
+		#else, adds to the string
+		else:
+			FinalString = FinalString + temp
+		#print(temp)
 	print(FinalString)
 	return
 
@@ -64,7 +104,7 @@ list = file.split('\n')
 BinaryInput = list[0]
 Int_BinaryInput = int(BinaryInput)
 Binary_Length = len(BinaryInput)
-#Our dictionary that holds all of our keys
+#Our dictionaries that holds all of our keys
 eightASKIIdict = {"00001000": "backspace", "00001001": "tab", "00001101": "cReturn", "00100000": "space",
                   "00100001": "!","00100010": '"', "00100100" : "$", "00100101" : "%", "00100110" : "&",
                   "00100111" : "'", "00101000" : "(", "00101001": ")", "00101010": "*", "00101011" : "+",
@@ -97,20 +137,6 @@ sevenASKIIdict = {
 "1110111":"w", "1111000":"x", "1111001":"y", "1111010":"z", "1111011":"{", "1111100":"|", "1111101":"}",
 "1111110":"~", "1111111":"delete", "0001010":"linefeed"}
 
-#temp = sevenASKIIdict.get("1010101")
-#test = sevenASKIIdict.get("0100010")
-#temp2 = sevenASKIIdict.get("1011100")
-#print(test)
-
-BinaryList = []
-
-#BinaryList.append(temp)
-#BinaryList.append(temp2)
-#temp3 = BinaryList[1]
-#temp3[0:1]
-#BinaryList[1] = temp3[:0]
-
-print(BinaryList)
 
 
 curr = 0
