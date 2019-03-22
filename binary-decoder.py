@@ -43,8 +43,7 @@ def eightBit(BinaryInput):
 			if (tracker == 1):
 				a = a
 			if (tracker == 2):
-				
-				FinalString = FinalString + "\r"
+				FinalString = FinalString + "\n"
 			if (tracker == 3):
 				a=a
 				FinalString = FinalString + "\r"
@@ -84,8 +83,7 @@ def sevenBit(BinaryInput, curr, Binary_Length):
 			if (tracker == 1):
 				a = a
 			if (tracker == 2):
-				
-				FinalString = FinalString + "\r"
+				FinalString = FinalString + "\n"
 			if (tracker == 3):
 				FinalString = FinalString + "\r"
 			tracker = -1
