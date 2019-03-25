@@ -16,11 +16,8 @@
 import sys
 import re
 ################################################################
-<<<<<<< HEAD
 
-=======
 #process input as a sequence of 8-bit ascii code
->>>>>>> non-dictionary-version
 def eightBit(BinaryInput):
         
         finalString = ""
