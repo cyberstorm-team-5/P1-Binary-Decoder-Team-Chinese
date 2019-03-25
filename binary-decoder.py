@@ -1,3 +1,4 @@
+#!/usr/bin/env python2.7
 ################################################################
 # Authors: Team Chinese (Lane Arnold, Christopher Boquet,
 # 	       Christopher Bouton, Darrell Durousseaux, Clay Fonseca,
@@ -15,8 +16,23 @@
 import sys
 import re
 ################################################################
+<<<<<<< HEAD
 
+=======
+#process input as a sequence of 8-bit ascii code
+>>>>>>> non-dictionary-version
 def eightBit(BinaryInput):
+        
+        finalString = ""
+        #print(BinaryInput)
+        for i in range(0, Binary_Length-7, 8):
+                #print(BinaryInput[i:i+8])
+                #print(chr(int(BinaryInput[i:i+8], 2)))
+                finalString += chr(int(BinaryInput[i:i+8], 2))
+        print(finalString)
+        return
+
+        '''
 	print("Im 8 bit")
 	changedMode = False
 	tracker = -1;
@@ -54,10 +70,26 @@ def eightBit(BinaryInput):
 			FinalString = FinalString + temp
 		#print(temp)
 	print(FinalString)
-	return
+	return'''
 
 #function for if it is seven bit
 def sevenBit(BinaryInput, curr, Binary_Length):
+
+
+        finalString = ""
+        #print(BinaryInput)
+        for i in range(0, Binary_Length-6, 7):
+                #print(BinaryInput[i:i+7])
+                #print(chr(int(BinaryInput[i:i+7], 2)))
+                finalString += chr(int(BinaryInput[i:i+7], 2))
+        print(finalString)
+        return
+
+
+        
+
+
+        '''
 	changedMode = False
 	tracker = -1;
 	curr = -1
@@ -93,16 +125,24 @@ def sevenBit(BinaryInput, curr, Binary_Length):
 			FinalString = FinalString + temp
 		#print(temp)
 	print(FinalString)
-	return
+	return'''
 
 
+
+
+########################MAIN#####################################
 
 file = sys.stdin.read()
 #Gets rid of any blank lines from the standard input
 list = file.split('\n')
 BinaryInput = list[0]
-Int_BinaryInput = int(BinaryInput)
+
+#Int_BinaryInput = int(BinaryInput)
 Binary_Length = len(BinaryInput)
+
+
+
+'''
 #Our dictionaries that holds all of our keys
 eightASKIIdict = {
 "00001000": "backspace", "00001001": "tab", "00001101": "cReturn", "00100000": "space",
@@ -136,14 +176,24 @@ sevenASKIIdict = {
 "1110000":"p", "1110001":"q", "1110010":"r", "1110011":"s", "1110100":"t", "1110101":"u", "1110110":"v",
 "1110111":"w", "1111000":"x", "1111001":"y", "1111010":"z", "1111011":"{", "1111100":"|", "1111101":"}",
 "1111110":"~", "1111111":"delete", "0001010":"linefeed"}
-
+'''
 
 
 curr = 0
-#Checks to see if it is 7 bit or 8 bit
+
+#Check if input is 7- or 8-bit bianry seperately, 
+#outputting the message with both if both are applicable
 if (Binary_Length % 8 == 0):
-	eightBit(Int_BinaryInput)
+	eightBit(BinaryInput)
+	
 if (Binary_Length % 7 == 0):
 	sevenBit(BinaryInput, curr, Binary_Length)
 
 print(BinaryInput)
+
+
+
+
+
+
+
