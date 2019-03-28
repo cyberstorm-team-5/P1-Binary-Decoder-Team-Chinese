@@ -26,9 +26,18 @@ def convertASCII(binaryInput, binaryLength, numBits):
         #(7 or 8) bits in the binaryInput
         for i in range(0, binaryLength-(numBits-1), numBits):
 
-                #convert the 7 or 8 bits into an integer form base 2, then use chr
-                #to convert the integer into the equivalent ASCII character
-                finalString += chr(int(binaryInput[i:i+numBits], 2))
+                #get the ASCII number for the bits
+                num = int(binaryInput[i:i+numBits], 2)
+
+                #check if the num will produce a backspace (ASCII 8)
+                if(num == 8):
+                        #remove the trailing character from the string
+                        finalString = finalString[:-1]
+                   
+                else:
+                        #convert the 7 or 8 bits into an integer form base 2, then use chr
+                        #to convert the integer into the equivalent ASCII character
+                        finalString += chr(num)
                 
         print(finalString)
         return
